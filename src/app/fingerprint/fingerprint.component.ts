@@ -21,14 +21,14 @@ export class FingerprintComponent implements OnInit {
           fingerprint: result
         };
 
-        this.processFingerprint(info);
+        // this.processFingerprint(info);
 
       })
     }, 500)
   }
-  processFingerprint(data) {
-    alert(data.fingerprint);
-  }
+  // processFingerprint(data) {
+  //   alert(data.fingerprint);
+  // }
 
 
 }
