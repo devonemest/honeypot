@@ -4,6 +4,7 @@ import {Metrika} from 'ng-yandex-metrika';
 import {NavigationEnd, Router} from '@angular/router';
 import { Location} from '@angular/common';
 import { filter } from 'rxjs/operators';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +13,7 @@ import { filter } from 'rxjs/operators';
 export class AppComponent implements OnInit{
   title = 'honeypot';
   message;
+
   prevPath = '';
 
   constructor(
@@ -37,5 +39,6 @@ export class AppComponent implements OnInit{
     this.messagingService.requestPermission();
     this.messagingService.receiveMessage();
     this.message = this.messagingService.currentMessage;
+
   }
 }
