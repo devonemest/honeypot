@@ -17,8 +17,11 @@ import { environment } from '../environments/environment';
 import { AsyncPipe } from '@angular/common';
 import {MessagingService} from "./service/messaging.service";
 import { MetrikaModule } from 'ng-yandex-metrika';
+import {RouterModule, Routes} from '@angular/router';
 
-
+const appRoutes: Routes = [
+  {path: '', component: AppComponent}
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +44,8 @@ import { MetrikaModule } from 'ng-yandex-metrika';
       // Можно задать ид счетчика, либо порядковый номер в массиве, необязательный параметрб по умолчанию первый попавшийся.
       62381503, // number | string
     ),
+    RouterModule.forRoot(appRoutes)
+
 
 
   ],
