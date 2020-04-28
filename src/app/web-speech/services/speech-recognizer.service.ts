@@ -28,8 +28,8 @@ export class SpeechRecognizerService {
     this.recognition.lang = language;
   }
 
-  start(timestamp) {
-    this.startTimestamp = timestamp;
+  start() {
+    // this.startTimestamp = timestamp;
     this.recognition.start();
   }
 
