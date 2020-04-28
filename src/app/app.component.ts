@@ -31,6 +31,7 @@ export class AppComponent implements OnInit{
         this.metrika.hit(newPath, {
           referer: this.prevPath,
         });
+        this.metrika.userParams({UserToken: this.messagingService.token.getValue()});
         this.prevPath = newPath;
       });
   }
@@ -39,6 +40,12 @@ export class AppComponent implements OnInit{
     this.messagingService.requestPermission();
     this.messagingService.receiveMessage();
     this.message = this.messagingService.currentMessage;
+    this.messagingService.token.asObservable().subscribe(value => {
+      if (value) {
+        this.metrika.userParams({UserToken: value});
+      }
+    });
+
 
   }
 }

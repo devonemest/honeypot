@@ -8,6 +8,7 @@ import {Metrika} from "ng-yandex-metrika";
 export class MessagingService {
 
   currentMessage = new BehaviorSubject(null);
+  token = new BehaviorSubject(null);
 
 
 
@@ -23,8 +24,7 @@ export class MessagingService {
   requestPermission() {
     this.angularFireMessaging.requestToken.subscribe(
       (token) => {
-        console.log(token);
-        this.metrika.userParams({UserToken: token});
+        this.token.next(token);
       },
       (err) => {
         console.error('Unable to get permission to notify.', err);
