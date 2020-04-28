@@ -38,6 +38,9 @@ export class WebSpeechComponent implements OnInit {
     this.speechRecognizer.start(event.timeStamp);
   }
 
+  lg(e) {
+    console.log(e);
+  }
   onSelectLanguage(language: string) {
     this.currentLanguage = language;
     this.speechRecognizer.setLanguage(this.currentLanguage);

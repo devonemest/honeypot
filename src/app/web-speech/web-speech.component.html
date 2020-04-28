@@ -10,7 +10,7 @@
 </div>
 
 <div class="center">
-  <button mat-fab (click)="startButton($event)">
+  <button mat-fab (click)="startButton($event); lg($event)">
     <mat-icon *ngIf="!recognizing">mic</mat-icon>
     <mat-icon *ngIf="recognizing">stop</mat-icon>
   </button>
