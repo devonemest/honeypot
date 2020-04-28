@@ -16,6 +16,8 @@ import {AppRoutingModule} from "./app-routing.module";
 import { environment } from '../environments/environment';
 import { AsyncPipe } from '@angular/common';
 import {MessagingService} from "./service/messaging.service";
+import { MetrikaModule } from 'ng-yandex-metrika';
+
 
 @NgModule({
   declarations: [
@@ -33,10 +35,16 @@ import {MessagingService} from "./service/messaging.service";
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireMessagingModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    MetrikaModule.forRoot(
+      {id: 62381503, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true}, // CounterConfig | CounterConfig[]
+      // Можно задать ид счетчика, либо порядковый номер в массиве, необязательный параметрб по умолчанию первый попавшийся.
+      62381503, // number | string
+    ),
+
 
   ],
-  providers: [MessagingService,AsyncPipe],
+  providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
