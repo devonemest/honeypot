@@ -8,15 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class GeoComponent implements OnInit {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
   status = '';
   mapLink = '';
   href = '';
-
-  geoFindMe() {
-
+  ngOnInit(): void {
     if (!navigator.geolocation) {
       this.status = 'Geolocation is not supported by your browser';
     } else {
@@ -29,7 +24,7 @@ export class GeoComponent implements OnInit {
         this.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
         this.mapLink = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
       }));
-    }
+  }
 
   }
 
