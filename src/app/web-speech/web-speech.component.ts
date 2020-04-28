@@ -30,14 +30,14 @@ export class WebSpeechComponent implements OnInit {
     this.speechRecognizer.start();
   }
 
-  startButton(event) {
-    if (this.recognizing) {
-      this.speechRecognizer.stop();
-      return;
-    }
-
-    this.speechRecognizer.start();
-  }
+  // startButton() {
+  //   if (this.recognizing) {
+  //     this.speechRecognizer.stop();
+  //     return;
+  //   }
+  //
+  //   this.speechRecognizer.start();
+  // }
 
   onSelectLanguage(language: string) {
     this.currentLanguage = language;
