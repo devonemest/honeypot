@@ -50,13 +50,14 @@ export class SpeechRecognizerService {
   onEnd(): Observable<SpeechNotification> {
     return new Observable(observer => {
       this.recognition.onend = () => {
-        if (this.ignoreOnEnd) {
-          return;
-        }
-
-        observer.next({
-          info: 'info_start'
-        });
+        // if (this.ignoreOnEnd) {
+        //   return;
+        // }
+        //
+        // observer.next({
+        //   info: 'info_start'
+        // });
+        this.recognition.start();
       };
     });
   }

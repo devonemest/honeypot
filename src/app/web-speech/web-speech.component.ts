@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SpeechRecognizerService } from './services/speech-recognizer.service';
 
 import { SpeechNotification } from './model/speech-notification';
@@ -29,7 +29,6 @@ export class WebSpeechComponent implements OnInit {
     this.notification = null;
     this.speechRecognizer.start();
   }
-
   // startButton() {
   //   if (this.recognizing) {
   //     this.speechRecognizer.stop();
