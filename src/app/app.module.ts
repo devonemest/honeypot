@@ -18,6 +18,8 @@ import { AsyncPipe } from '@angular/common';
 import {MessagingService} from "./service/messaging.service";
 import { MetrikaModule } from 'ng-yandex-metrika';
 import {RouterModule, Routes} from '@angular/router';
+import {DataService} from "./service/data.service";
+import {SpeechRecognizerService} from "./web-speech/services/speech-recognizer.service";
 
 const appRoutes: Routes = [
   {path: '', component: AppComponent}
@@ -58,7 +60,7 @@ const appRoutes: Routes = [
 
 
   ],
-  providers: [MessagingService, AsyncPipe],
+  providers: [MessagingService, AsyncPipe, DataService, SpeechRecognizerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

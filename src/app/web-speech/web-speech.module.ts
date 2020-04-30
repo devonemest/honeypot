@@ -21,7 +21,6 @@ import {MaterialModule} from "../shared/material/material.module";
     WebSpeechComponent
   ],
   providers: [
-    SpeechRecognizerService
   ]
 })
 export class WebSpeechModule { }

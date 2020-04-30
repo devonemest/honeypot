@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from "../service/data.service";
 
 @Component({
   selector: 'app-geo',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data: DataService) { }
   status = '';
   mapLink = '';
   href = '';
@@ -18,7 +19,9 @@ export class GeoComponent implements OnInit {
       this.status = 'Locating…';
       navigator.geolocation.getCurrentPosition((position => {
         const latitude  = position.coords.latitude;
-        const longitude = position.coords.longitude;
+        const longitude = position.coords.longitude
+
+        this.data.addGeo([latitude, longitude]);
 
         this.status = '';
         this.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;

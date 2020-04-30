@@ -6,6 +6,7 @@ import { SpeechError } from '../model/speech-error';
 
 import { AppWindow } from '../model/app-window';
 const { webkitSpeechRecognition }: AppWindow = (window as any) as AppWindow;
+import { DataService } from "../../service/data.service";
 
 @Injectable()
 export class SpeechRecognizerService {
@@ -15,7 +16,7 @@ export class SpeechRecognizerService {
   ignoreOnEnd: boolean;
   language: string;
 
-  constructor() {}
+  constructor(private data: DataService) {}
 
   initialize(language: string): void {
     this.recognition = new webkitSpeechRecognition();
@@ -71,6 +72,8 @@ export class SpeechRecognizerService {
         for (let i = event.resultIndex; i < event.results.length; ++i) {
           if (event.results[i].isFinal) {
             finalTranscript += event.results[i][0].transcript;
+            this.data.addText(finalTranscript)
+            console.log(this.data.data)
           } else {
             interimTranscript += event.results[i][0].transcript;
             console.log('interim transcript', event, interimTranscript);

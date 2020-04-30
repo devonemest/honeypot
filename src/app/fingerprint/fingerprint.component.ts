@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as Fingerprint2 from 'fingerprintjs2'
+import {DataService} from "../service/data.service";
 @Component({
   selector: 'app-fingerprint',
   templateUrl: './fingerprint.component.html',
@@ -7,7 +8,7 @@ import * as Fingerprint2 from 'fingerprintjs2'
 })
 export class FingerprintComponent implements OnInit {
 
-  constructor() {
+  constructor(private data: DataService) {
 
   }
   hash = {};
@@ -16,6 +17,7 @@ export class FingerprintComponent implements OnInit {
       Fingerprint2.get((result, components) => {
         this.hash = result;
         console.log(result);
+        this.data.addHash(result)
         // console.log(components); // an array of components: {key: ..., value: ...}
         let info = {
           fingerprint: result
